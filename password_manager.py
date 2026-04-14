@@ -57,7 +57,10 @@ def change_password(filename: str, website: str, password: str) -> bool:
         writer = csv.writer(file)
         writer.writerows(reader)
 
-    return True  
+    return True
+  
+if __name__ == "__main__":
+    change_password("examples/example3.csv", "testsite.com", "newsecurepass")
 
 #Parte 4
 
