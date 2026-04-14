@@ -37,9 +37,29 @@ if __name__ == "__main__":
 #Parte 3
 
 def change_password(filename: str, website: str, password: str) -> bool:
-    """TODO: Parte 3."""
-    pass
+    with open(filename, "r") as file:
+        reader = csv.reader(file)
+        reader = list(reader)
 
+    found = False
+
+    for index, row in enumerate(reader):
+        if index != 0 and row:  
+            if row[0] == website:
+                row[2] = caesar_encrypt(password)
+                found = True
+                break
+
+    if not found:
+        return False
+
+    with open(filename, "w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerows(reader)
+
+    return True  
+
+#Parte 4
 
 def add_login(filename: str, website_name: str, username: str, password: str) -> None:
     """TODO: Parte 4."""
