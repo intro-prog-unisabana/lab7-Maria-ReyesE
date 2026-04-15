@@ -6,7 +6,7 @@ from caesar import caesar_encrypt
 def encrypt_single_pass(filename : str) -> None:
     with open (filename,"r") as file:
         original_password = file.read().strip()
-    encrypted_password = caesar_encrypt(original_password)
+        encrypted_password = caesar_encrypt(original_password)
 
     with open (filename,"w") as file:
         file.write(encrypted_password)
