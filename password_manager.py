@@ -71,5 +71,5 @@ def add_login(filename: str, website_name: str, username: str, password: str) ->
         writer = csv.writer(file)
         writer.writerow([website_name, username, encrypted_password])
 
-        if __name__ == "__main__":
-            add_login("examples/example4.csv", "newsite.com", "newuser", "newpassword")
+if __name__ == "__main__":
+    add_login("examples/example3.csv", "newsite.com", "newuser", "newpassword")
