@@ -65,5 +65,11 @@ if __name__ == "__main__":
 #Parte 4
 
 def add_login(filename: str, website_name: str, username: str, password: str) -> None:
-    """TODO: Parte 4."""
-    pass
+    encrypted_password = caesar_encrypt(password)
+
+    with open(filename, "a", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow([website_name, username, encrypted_password])
+
+        if __name__ == "__main__":
+            add_login("examples/example4.csv", "newsite.com", "newuser", "newpassword")
