@@ -21,11 +21,12 @@ def encrypt_passwords_in_file(filename: str) -> None:
         reader = csv.reader(file)
         data = []
         for row in reader:
-            data.append(row)
+            if row and len(row) >= 3:
+                data.append(row)
     
-        for index, row in enumerate(data):
-            if index != 0:
-                row[2] = caesar_encrypt(row[2])
+    for index, row in enumerate(data):
+        if index != 0:
+            row[2] = caesar_encrypt(row[2])
 
     with open(filename, "w", newline="") as file:
         writer = csv.writer(file)
